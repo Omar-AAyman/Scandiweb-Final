@@ -1,0 +1,21 @@
+{
+    "name": "hp/php-mvc1",
+    "authors": [
+        {
+            "name": "Omar",
+            "email": "omaraymn411@gmail.com"
+        }
+    ],
+    
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.5",
+        "symfony/var-dumper": "^6.0"
+    }
+    
+}
+

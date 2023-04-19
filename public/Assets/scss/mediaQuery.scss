@@ -1,0 +1,135 @@
+/* Small devices (Phone, 600px and up) */
+@media (min-width: 500px) {
+
+
+    .container {
+        width: 470px;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    #sec-1 {
+        article {
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
+                margin-bottom: 1rem;
+            }
+
+
+        }
+    }
+
+    #sec2-productList {
+        .container {
+            .item-part {
+                width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+
+    #sec2-addProduct {
+        // background-color: bisque;
+        // justify-content: center;            
+
+
+        .container {
+            justify-content: center;
+
+            form {
+                width: 90%;
+
+            }
+        }
+    }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 750px) {
+
+    .container {
+        width: 715px;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    #sec-1 {
+        article {
+            flex-direction: row;
+
+            h2 {
+                margin-bottom: 1rem;
+            }
+
+
+        }
+    }
+
+
+    #sec2-productList {
+        .container {
+            .item-part {
+                width: 250px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+
+    #sec2-addProduct {
+        .container {
+            justify-content: start;
+
+            form {
+                width: 60%;
+
+            }
+        }
+    }
+
+}
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+    .container {
+        width: 910px;
+
+
+    }
+
+    #sec2-productList {
+        .container {
+            .item-part {
+                width: 230px;
+            }
+        }
+    }
+
+    #sec2-addProduct {
+        .container {
+            form {
+                width: 50%;
+
+            }
+        }
+    }
+
+
+
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px;
+    }
+}
