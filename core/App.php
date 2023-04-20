@@ -1,9 +1,9 @@
 <?php
 
 
-namespace app\core;
+namespace app\Core;
 
-use app\core\Router;
+use app\Core\Router;
 
 class App
 {

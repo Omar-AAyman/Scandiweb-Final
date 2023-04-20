@@ -1,13 +1,16 @@
 <?php
 
 
-namespace app\core;
+namespace app\Core;
+
+use app\Controllers\ProductController;
 
 class Router
 {
     public Request $request;
     public Response $response;
     protected array $routes = [];
+
 
 
     public function __construct(Request $request, Response $response)
@@ -41,7 +44,7 @@ class Router
         if ($callback === false) {
             App::$app->controller = new Controller;
             $this->response->setStatusCode(404);
-            return $this->renderView("layouts/errors/_404");
+            return $this->renderView("Layouts/errors/_404");
             exit;
         }
         if (is_string($callback)) {
@@ -60,12 +63,15 @@ class Router
     {
         $layout = App::$app->controller->layout;
         ob_start();
-        include_once App::$ROOT_DIR . "/views/layouts/{$layout}.php";
+        include_once App::$ROOT_DIR . "/views/Layouts/{$layout}.php";
         return ob_get_clean();
     }
 
+
+
+    
     public function renderView($view, $params = [])
-    {   
+    {
         $layoutContent = $this->newTitle($view, $this->layoutContent());
         $viewContent = $this->renderFooter($this->newTitle($view, $this->renderOnlyView($view, $params)));
         return str_replace('{{content}}', $viewContent, $layoutContent);
@@ -82,11 +88,17 @@ class Router
     }
 
 
+
+
     public function renderContent($viewContent)
     {
         $layoutContent = $this->layoutContent();
         return str_replace('{{content}}', $viewContent, $layoutContent);
     }
+
+
+
+
 
     public function prepareTitle($viewName)
     {
@@ -104,11 +116,17 @@ class Router
         $newTitle = $this->prepareTitle($viewName);
         return str_replace('{{title}}', $newTitle, $viewContent);
     }
+
+
+
+
+
     public function footerContent()
     {
         ob_start();
-        include_once App::$ROOT_DIR . "/views/layouts/footer.php";
-        return ob_get_clean();    }
+        include_once App::$ROOT_DIR . "/views/Layouts/footer.php";
+        return ob_get_clean();
+    }
 
     public function renderFooter($viewContent)
     {

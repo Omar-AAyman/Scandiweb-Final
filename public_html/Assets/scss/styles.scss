@@ -1,0 +1,203 @@
+@import '_variables';
+@import '_buttons';
+// @import '404';
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline-style: none;
+
+}
+
+body {
+    font-family: $font-stack;
+    line-height: 1.2;
+    height: 100%;
+}
+
+.container {
+    margin-left: 50px;
+    margin-right: 50px;
+    flex-wrap: wrap;
+}
+
+#sec-1 {
+    width: 100%;
+    padding-top: 2rem;
+
+    article {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1.4rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid $lines-color;
+        margin-left: auto;
+        margin-right: auto;
+
+
+        .buttons {
+            display: flex;
+            align-items: center;
+
+            #cancel-btn {
+                @extend %btn;
+                border-color: $danger-color;
+                color: $danger-color;
+
+                &:hover {
+                    background-color: $danger-color;
+                }
+            }
+
+            #save-btn {
+                @extend %btn;
+                border-color: $success-color;
+                color: $success-color;
+
+                &:hover {
+                    background-color: $success-color;
+                }
+            }
+
+            #add-btn {
+                @extend %btn;
+                border-color: $primary-color;
+                color: $primary-color;
+
+                &:hover {
+                    background-color: $primary-color;
+                }
+            }
+
+            #delete-product-btn {
+                @extend %btn;
+                border-color: $danger-color;
+                color: $danger-color;
+                padding: .5rem .8rem;
+
+                &:hover {
+                    background-color: $danger-color;
+                }
+            }
+
+        }
+
+    }
+
+}
+
+#sec2-productList {
+    width: 100%;
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+
+        .item-part {
+            width: 180px;
+            border: 2px solid $lines-color;
+            border-radius: 4px;
+            padding: 1rem 1rem;
+            margin: 1.5rem 0;
+            line-height: 1.5rem;
+            user-select: none;
+            &:hover {
+                cursor: pointer;
+            }
+
+            article {
+                text-align: center;
+            }
+        }
+        .item-checked{
+            border: 2px solid $danger-color;
+            background-color: $danger-bg-color;
+        }
+    }
+}
+
+// #sec2-addProduct {
+//     width: 100%;
+
+//     .container {
+//         display: flex;
+//         flex-wrap: wrap;
+//         flex-direction: row;
+//         margin-left: auto;
+//         margin-right: auto;
+
+//         form {
+//             width: 50%;
+//             display: flex;
+//             flex-wrap: wrap;
+//             justify-content: start;
+//             flex-direction: column;
+//             padding: 1rem 1rem;
+//             margin: 1.5rem 0;
+//             line-height: 2rem;
+
+//             div {
+//                 width: 100%;
+
+//                 display: flex;
+//                 flex-wrap: wrap;
+//                 justify-content: space-between;
+//                 align-items: center;
+//                 flex-direction: row;
+//                 font-weight: bold;
+//                 font-size: large;
+
+//                 input,
+//                 select {
+//                     width: 15rem;
+//                     height: 2rem;
+//                     margin: .8rem 0;
+//                     border: 2px solid $lines-color ;
+//                     border-radius: 4px;
+//                     text-align: center;
+//                     font-size: medium;
+//                     font-weight: 600;
+
+
+//                 }
+
+//                 select {
+//                     margin: 2rem 0;
+//                     width: 12rem;
+//                 }
+
+//                 div p {
+//                     font-size: medium;
+//                     text-transform: capitalize;
+//                     // display: none;
+//                 }
+//             }
+
+//         }
+
+//     }
+
+// }
+
+
+
+
+#sec-3 {
+    width: 100%;
+
+    .footer {
+        text-align: center;
+        padding: 1.2rem 0;
+        margin-bottom: 0.6rem;
+        border-top: 2px solid $lines-color;
+        // color: $text-color;
+
+    }
+}
+

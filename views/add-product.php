@@ -6,7 +6,8 @@
                 <h1>{{title}}</h1>
                 <div class="buttons">
                     <button id="save-btn">Save</button>
-                    <a href="/" id="cancel-btn">Cancel</a>
+                    <Button  id="cancel-btn" onclick="window.location.replace('/')">Cancel</Button>
+
                 </div>
             </article>
         </div>
@@ -43,7 +44,7 @@
                     <label for="productType" class="form-label">Type Switcher</label>
                     <select name="productType" id="productType" class="form-select">
                         <option value="">Select Type</option>
-                        <option value="dvd">DVD-disc</option>
+                        <option value="dvd">DVD</option>
                         <option value="furniture">Furniture</option>
                         <option value="book">Book</option>
                     </select>
@@ -55,7 +56,7 @@
                 <div class="DVD-form my-3 d-none" id="dvd-inputs">
                     <div>
                         <label for="size" class="form-label">Size (MB)</label>
-                        <input type="number" name="size" id="size" value="" class="form-control">
+                        <input type="number" name="size" id="size"  class="form-control">
                         <div class="invalid-feedback size_error">
                         </div>
                     </div>

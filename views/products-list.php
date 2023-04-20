@@ -6,7 +6,7 @@
             <article>
                 <h1>{{title}}</h1>
                 <div class="buttons">
-                    <a href="add-product" id="add-btn">Add</a>
+                    <Button  id="add-btn" onclick="window.location.replace('/add-product')">ADD</Button>
                     <button id="delete-product-btn">MASS DELETE</button>
                 </div>
             </article>
@@ -32,8 +32,8 @@
                                 <h5 class="name"><?= $product['name']; ?></h5>
                                 <p class="price">$<?= $product['price']; ?></p>
                                 <p class="type">
-                                    <?= $product['size'] ? "Size: " . $product['size'] . " MB" : null ?>
                                     <?= $product['weight'] ? "Weight: " . $product['weight'] . " KG" : null ?>
+                                    <?= $product['size'] ? "Size: " . $product['size'] . " MB" : null ?>
                                     <?= $product['size'] == null && $product['weight'] == null ? "Dimensions: " . $product['height'] . "x" . $product['width'] . "x" . $product['length'] : null ?>
                                 </p>
                             </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace app\Core;
 
 use app\Core\Model;
 
@@ -49,9 +49,10 @@ abstract class DbModel extends Model
         $table = $this->table();
         $attributes = $this->attributes();
         $qMarks = $this->qMarks();
-        $statement = $this->prepare("INSERT INTO $table (" . '`' . implode('`,`', array_keys(array_filter($attributes))) . '`' . ") VALUES (" . implode(',', $qMarks) . ")");
-        if (!$statement == false) {
+        
+        $statement = $this->prepare("INSERT INTO $table (" .'`' . implode('`,`', array_keys(array_filter($attributes))) . '`' . ") VALUES (" . implode(',', $qMarks) . ")");
             call_user_func_array(array($statement, 'bind_param'), $this->getRefs());
+        if (!$statement == false) {
             $statement->execute();
             return true;
         }

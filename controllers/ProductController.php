@@ -3,10 +3,9 @@
 
 namespace app\Controllers;
 
-use app\core\App;
-use app\core\Request;
-use app\core\Controller;
-use app\core\Response;
+use app\Core\Request;
+use app\Core\Response;
+use app\Core\Controller;
 use app\models\Product;
 
 class ProductController extends Controller
@@ -19,6 +18,7 @@ class ProductController extends Controller
         return $this->render("products-list", ['products' => $products]);
     }
 
+
     public  function addProduct(Request $request)
     {
         $product = new Product;
@@ -26,9 +26,9 @@ class ProductController extends Controller
         if ($request->isPost()) {
             $response = new Response;
             if ($product->validate() && $product->store()) {
-                $products = $product->getAllData();
                 return  $response->json([
                     "status" => true,
+                    "product"=>$product->store()
                 ]);
             }
             return  $response->json([
@@ -44,7 +44,6 @@ class ProductController extends Controller
             ]
         );
     }
-
 
 
     public  function deleteProduct(Request $request)

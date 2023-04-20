@@ -5,9 +5,9 @@ use app\core\App;
 use Dotenv\Dotenv;
 use app\Controllers\ProductController;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
-$dotenv=Dotenv::createUnsafeImmutable(dirname(__DIR__));
+$dotenv=Dotenv::createUnsafeImmutable(__DIR__);
 $dotenv->load();
 
 
@@ -20,8 +20,7 @@ $config= [
         'port' => $_ENV['DB_PORT'],
     ],
 ];
-
-$app = new App(dirname(__DIR__) , $config);
+$app = new App(__DIR__ , $config);
 
 $app->router->get('/', [ProductController::class , 'productsList']);
 $app->router->get('/add-product', [ProductController::class , 'addProduct']);

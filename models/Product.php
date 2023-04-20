@@ -3,7 +3,7 @@
 
 namespace app\models;
 
-use app\core\DbModel;
+use app\Core\DbModel;
 
 
 class Product extends DbModel
@@ -69,7 +69,7 @@ class Product extends DbModel
             ],
 
             'book' => [
-                'weight' => [self::RULE_REQUIRED,  [self::RULE_MIN, 'min' => 1], [self::RULE_MAX, 'max' => 2], 'field' => self::class],
+                'weight' => [self::RULE_REQUIRED,  [self::RULE_MIN, 'min' => 1], [self::RULE_MAX, 'max' => 5], 'field' => self::class],
             ]
         ];
 
