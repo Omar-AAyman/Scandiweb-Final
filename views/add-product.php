@@ -17,6 +17,10 @@
 
     <!-- Products List Part -->
     <section id="sec2-addProduct">
+        <div class="alert alert-danger d-none" role="alert">
+            
+        </div>
+        
         <div class="container">
 
             <!-- Item Part -->

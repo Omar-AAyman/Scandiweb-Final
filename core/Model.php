@@ -14,9 +14,6 @@ abstract class Model
     public const RULE_UNIQUE = 'unique';
     public array $errors = [];
 
-
-
-
     public function loadData($data)
     {
         foreach ($data as $key => $value) {
@@ -25,8 +22,8 @@ abstract class Model
             }
         }
     }
-    abstract public function rules(): array;
-    abstract public function specialRules(): array;
+
+   
     public function labels(): array
     {
         return [];
@@ -36,47 +33,10 @@ abstract class Model
         return $this->labels()[$attribute] ?? $attribute;
     }
 
-
-    public function Validate()
-    {
+  
 
 
-        foreach ($this->rules() as $attribute => $rules) {
-            $value = $this->{$attribute};
-            foreach ($rules as $rule) {
-                $ruleName = $rule;
-                if (!is_string($rule)) {
-                    $ruleName = $rule[0];
-                }
-                if ($ruleName === self::RULE_REQUIRED && !$value) {
-                    $this->addError($attribute, self::RULE_REQUIRED);
-                }
-
-                if ($ruleName === self::RULE_MIN && strlen($value) < $rule['min']) {
-                    $this->addError($attribute, self::RULE_MIN, ['field' => $this->getLabel($attribute)]);
-                }
-                if ($ruleName === self::RULE_MAX && strlen($value) > $rule['max']) {
-                    $this->addError($attribute, self::RULE_MAX, ['field' => $this->getLabel($attribute)]);
-                }
-                if ($ruleName === self::RULE_UNIQUE) {
-                    $class = $rule['field'];
-                    $uniqueAttr = $rule['attribute'] ?? $attribute;
-                    $table = $class::table();
-                    $statement = App::$app->db->prepare("SELECT * FROM $table WHERE $uniqueAttr = ?");
-                    $statement->bind_param("s", $value);
-                    $statement->execute();
-                    $record = $statement->fetch();
-                    if ($record) {
-                        $this->addError($attribute, self::RULE_UNIQUE, ['field' => $this->getLabel($attribute)]);
-                    }
-                }
-            }
-        }
-        return empty($this->errors);
-    }
-
-
-    public function addError(string $attribute, string $rule, $params = [])
+    public  function addError(string $attribute, string $rule, $params = [])
     {
         $message = $this->errorMessages()[$rule] ?? '';
 

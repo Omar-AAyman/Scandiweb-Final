@@ -33,16 +33,23 @@ $('#save-btn').on('click', function () {
         },
         beforeSend: function () {
             $(document).find('div.invalid-feedback').text('');
+            $(document).find('div.alert').text('');
         },
         success: function (response) {
             if (JSON.parse(response).status == false) {
                 $.each(JSON.parse(response).errors, function (prefix, val) {
                     $('#' + prefix).addClass('is-invalid')
                     $('.' + prefix + '_error').text(val[0])
+                    $('.alert').addClass('d-none');
                 })
-            } else if (JSON.parse(response).status == true) {
+            } 
+            else if (JSON.parse(response).message) {
+                $('.alert').removeClass('d-none').text(JSON.parse(response).message);
+            } 
+            else if (JSON.parse(response).status == true) {
                 window.location.replace("/");
             }
+
 
         }
     })

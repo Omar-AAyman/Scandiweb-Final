@@ -26,8 +26,8 @@ $app->router->get('/', [ProductController::class , 'productsList']);
 $app->router->get('/add-product', [ProductController::class , 'addProduct']);
 $app->router->post('/add-product', [ProductController::class , 'addProduct']);
 
-$app->router->post('/mass-delete', [ProductController::class , 'deleteProduct']);
 $app->router->get('/mass-delete', [ProductController::class , 'deleteProduct']);
+$app->router->post('/mass-delete', [ProductController::class , 'deleteProduct']);
 
 
 $app->run();
