@@ -8,7 +8,7 @@ use app\models\Abstracts\Product;
 class Furniture extends Product
 {
 
-    public function loadData($data)
+    public function loadData($data):void
     {
         return parent::loadData($data);
     }
@@ -29,7 +29,7 @@ class Furniture extends Product
     }
 
     
-    public function AddToDB()
+    public function AddToDB():bool
     {
         if ($this->validate() && $this->store()) {
             return true;

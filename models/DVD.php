@@ -9,7 +9,7 @@ class DVD extends Product
 {
 
 
-    public function loadData($data)
+    public function loadData($data):void
     {
        return parent::loadData($data);
     }
@@ -30,7 +30,7 @@ class DVD extends Product
 
 
 
-    public function AddToDB()
+    public function AddToDB():bool
     {
         if ($this->validate() && $this->store()) {
             return true;

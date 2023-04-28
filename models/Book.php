@@ -4,10 +4,14 @@ namespace app\models;
 
 use app\Models\Abstracts\Product;
 
+/**
+ * Summary of Book
+ */
 class Book extends Product
 {
 
-    public function loadData($data)
+    
+    public function loadData($data):void
     {
         return parent::loadData($data);
     }
@@ -25,7 +29,7 @@ class Book extends Product
     }
 
 
-    public function AddToDB()
+    public function AddToDB():bool
     {
         if ($this->validate() && $this->store()) {
             return true;

@@ -5,9 +5,12 @@ namespace app\Models\Abstracts;
 use app\Core\Model;
 
 
+/**
+ * Summary of Products
+ */
 abstract class Products extends Model{
 
-    public array $ids ;
+    public array $ids=[] ;
     
     public function table(): string
     {
@@ -28,6 +31,7 @@ abstract class Products extends Model{
         return $this;
     }
     
-    abstract public function delete();
-    abstract public function getAllData();
+ 
+    abstract public function delete():bool;
+    abstract public function getAllData():array;
 }

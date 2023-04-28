@@ -7,14 +7,20 @@ use app\Core\App;
 use app\models\Abstracts\Products;
 
 
+/**
+ * Summary of AllProducts
+ */
 class AllProducts extends Products
 {
     
-    public function loadData($data)
+    
+    public function loadData($data):void
     {
         return parent::loadData($data);
     }
-    public function getAllData()
+
+   
+    public function getAllData(): array
     {
         $table = parent::table();
         $statement = $this->prepare("SELECT * FROM $table");
@@ -23,7 +29,7 @@ class AllProducts extends Products
     }
 
 
-    public function delete()
+    public function delete():bool
     {
         $table = parent::table();
         $ids = $this->ids;
@@ -33,9 +39,11 @@ class AllProducts extends Products
             $statement->execute();
             return true;
         }
+        return false;
     }
 
-    public static function prepare($sql)
+   
+    public static function prepare($sql):\mysqli_stmt|bool
     {
         return App::$app->db->mysqli->prepare($sql);
     }

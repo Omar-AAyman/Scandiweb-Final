@@ -9,6 +9,9 @@ use app\models\Book;
 use app\models\DVD;
 use app\models\Furniture;
 
+/**
+ * Summary of Product
+ */
 abstract class Product extends Model
 {
     public string $sku = '';
@@ -26,10 +29,12 @@ abstract class Product extends Model
         return '`products`';
     }
     
-    abstract function AddToDB();
+    
+    abstract function AddToDB():bool;
     abstract function allRules(): array;
 
-    public static function getProductType($productType)
+   
+    public static function getProductType($productType):array
     {
         if (in_array($productType, ['dvd', 'furniture', 'book'])) {
             $productTypes = [
@@ -48,7 +53,7 @@ abstract class Product extends Model
         ];
     }
 
-    public function store()
+    public function store():bool
     {
         $table = $this->table();
         $attributes = $this->attributes();
@@ -60,6 +65,7 @@ abstract class Product extends Model
             $statement->execute();
             return true;
         }
+        return false;
     }
 
 
@@ -79,7 +85,7 @@ abstract class Product extends Model
 
     // Generate Attributes from Rules Array
 
-    public function attributes()
+    public function attributes():array
     {
         foreach ($this->allRules() as $attribute => $value) {
             $attributeValue[$attribute] = $this->{$attribute};
