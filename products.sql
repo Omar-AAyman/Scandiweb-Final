@@ -33,7 +33,6 @@ CREATE TABLE `products` (
   `name` varchar(255) NOT NULL,
   `price` decimal(8,2) UNSIGNED NOT NULL,
   `productType` varchar(32) NOT NULL COMMENT '[''dvd'',''furniture'',''book'']',
-  `status` tinyint(1) NOT NULL COMMENT '1=> Active , 0=> Not Active',
   `size` decimal(8,0) UNSIGNED DEFAULT NULL,
   `height` decimal(8,0) UNSIGNED DEFAULT NULL,
   `width` decimal(8,0) UNSIGNED DEFAULT NULL,
