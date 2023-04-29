@@ -24,12 +24,12 @@ abstract class Products extends Model{
      *
      * @return  self
      */ 
-    public function setIds()
-    {
-        $this->ids = $this->{'ids'};
+      //  public function setIds()
+    // {
+    //   $this->ids = $this->{'ids'};
 
-        return $this;
-    }
+    // return $this;
+    // }
     
  
     abstract public function delete():bool;
