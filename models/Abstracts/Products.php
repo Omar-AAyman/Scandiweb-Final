@@ -17,20 +17,6 @@ abstract class Products extends Model{
         return '`products`';
     }
     
-
-    
-    /**
-     * Set the value of ids
-     *
-     * @return  self
-     */ 
-      //  public function setIds()
-    // {
-    //   $this->ids = $this->{'ids'};
-
-    // return $this;
-    // }
-    
  
     abstract public function delete():bool;
     abstract public function getAllData():array;
